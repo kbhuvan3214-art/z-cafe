@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve a Table — Z Cafe</title>
+  <meta name="description" content="Reserve your table at Z Cafe. Experience immersive waterfall dining in Garden District.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="reserve.css">
+</head>
+<body>
+
+  <!-- Grain overlay -->
+  <div class="grain"></div>
+
+  <!-- Navigation -->
+  <header class="reserve-nav">
+    <div class="reserve-nav__inner">
+      <a href="index.html" class="reserve-nav__logo">Z Cafe</a>
+      <a href="index.html" class="reserve-nav__back">← Back to Site</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="reserve-page">
+
+    <!-- Hero Section -->
+    <section class="reserve-hero">
+      <div class="reserve-hero__bg"></div>
+      <div class="reserve-hero__content">
+        <span class="eyebrow">RESERVATIONS</span>
+        <h1 class="reserve-hero__title">Reserve<br>Your Table</h1>
+        <p class="reserve-hero__subtitle">An evening at Z Cafe is not just dinner — it's an experience. Secure your place ARTISAN DINING.</p>
+      </div>
+      <div class="reserve-hero__scroll">
+        <span class="micro-text">SCROLL TO RESERVE</span>
+        <span class="reserve-hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- Reservation Form Section -->
+    <section class="reserve-form-section" id="form">
+      <div class="reserve-form-section__container">
+
+        <div class="reserve-form-section__info">
+          <span class="eyebrow">DETAILS</span>
+          <h2 class="display-text reserve-form-section__heading">When<br>Shall We<br>Expect<br>You?</h2>
+          
+          <div class="reserve-info-cards">
+            <div class="reserve-info-card">
+              <span class="reserve-info-card__icon">◴</span>
+              <div>
+                <span class="micro-text">HOURS</span>
+                <p class="body-text">Open Daily<br>6:00 PM — 11:00 PM</p>
+              </div>
+            </div>
+            <div class="reserve-info-card">
+              <span class="reserve-info-card__icon">☎</span>
+              <div>
+                <span class="micro-text">DIRECT LINE</span>
+                <p class="body-text">+91 98790 12345</p>
+              </div>
+            </div>
+            <div class="reserve-info-card">
+              <span class="micro-text">PARTY SIZE NOTE</span>
+              <p class="body-text" style="margin-top: 0.5rem;">For parties larger than 10, please contact us directly for a bespoke arrangement.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Form -->
+        <div class="reserve-form-wrap" id="reserveFormWrap">
+          <form class="reserve-form" id="reserveForm" novalidate>
+
+            <div class="reserve-form__group">
+              <label for="guest_name" class="micro-text">FULL NAME</label>
+              <input type="text" id="guest_name" name="guest_name" required placeholder="Your name" autocomplete="name">
+              <span class="reserve-form__error" id="error_name"></span>
+            </div>
+
+            <div class="reserve-form__row">
+              <div class="reserve-form__group">
+                <label for="email" class="micro-text">EMAIL</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com" autocomplete="email">
+                <span class="reserve-form__error" id="error_email"></span>
+              </div>
+              <div class="reserve-form__group">
+                <label for="phone" class="micro-text">PHONE</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX" autocomplete="tel">
+                <span class="reserve-form__error" id="error_phone"></span>
+              </div>
+            </div>
+
+            <div class="reserve-form__row">
+              <div class="reserve-form__group">
+                <label for="date" class="micro-text">DATE</label>
+                <input type="date" id="date" name="date" required>
+                <span class="reserve-form__error" id="error_date"></span>
+              </div>
+              <div class="reserve-form__group">
+                <label for="time" class="micro-text">TIME</label>
+                <select id="time" name="time" required>
+                  <option value="">Select time</option>
+                  <option value="18:00">6:00 PM</option>
+                  <option value="18:30">6:30 PM</option>
+                  <option value="19:00">7:00 PM</option>
+                  <option value="19:30">7:30 PM</option>
+                  <option value="20:00">8:00 PM</option>
+                  <option value="20:30">8:30 PM</option>
+                  <option value="21:00">9:00 PM</option>
+                  <option value="21:30">9:30 PM</option>
+                  <option value="22:00">10:00 PM</option>
+                  <option value="22:30">10:30 PM</option>
+                </select>
+                <span class="reserve-form__error" id="error_time"></span>
+              </div>
+            </div>
+
+            <div class="reserve-form__group">
+              <label for="guests" class="micro-text">NUMBER OF GUESTS</label>
+              <div class="reserve-form__guests-control">
+                <button type="button" class="reserve-form__guests-btn" id="guestsMinus">−</button>
+                <input type="number" id="guests" name="guests" value="2" min="1" max="10" required readonly>
+                <button type="button" class="reserve-form__guests-btn" id="guestsPlus">+</button>
+              </div>
+            </div>
+
+            <div class="reserve-form__group">
+              <label for="special_requests" class="micro-text">SPECIAL REQUESTS</label>
+              <textarea id="special_requests" name="special_requests" rows="3" placeholder="Allergies, celebrations, seating preference..."></textarea>
+            </div>
+
+            <button type="submit" class="reserve-form__submit" id="submitBtn">
+              <span class="reserve-form__submit-text">Confirm Reservation</span>
+              <span class="reserve-form__submit-loader" id="submitLoader"></span>
+            </button>
+
+          </form>
+        </div>
+
+        <!-- Success State -->
+        <div class="reserve-success" id="reserveSuccess" style="display: none;">
+          <div class="reserve-success__inner">
+            <div class="reserve-success__icon">✓</div>
+            <h2 class="display-text">Table<br>Reserved.</h2>
+            <div class="reserve-success__details" id="successDetails"></div>
+            <p class="body-text" style="margin-top: 2rem; opacity: 0.7;">You'll receive a confirmation at your email. For changes, please call us directly.</p>
+            <a href="index.html" class="reserve-success__back">Return to Z Cafe →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="reserve-footer">
+    <div class="reserve-footer__inner">
+      <span class="micro-text">© 2026 Z Cafe</span>
+      <a href="index.html" class="micro-text">BACK TO SITE</a>
+    </div>
+  </footer>
+
+  <script src="reserve.js"></script>
+</body>
+</html>

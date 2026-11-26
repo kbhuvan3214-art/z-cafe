@@ -1,0 +1,58 @@
+/* Z Cafe Reservation Page */
+.reserve-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.25rem var(--pad-x); background: rgba(10,10,10,0.9); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.reserve-nav__inner { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
+.reserve-nav__logo { font-family: var(--ff-display); font-size: 1.4rem; letter-spacing: 0.2em; }
+.reserve-nav__back { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+
+.reserve-hero { padding: 8rem var(--pad-x) 3.5rem; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+.reserve-hero__title { font-family: var(--ff-display); font-weight: 400; font-size: clamp(2.8rem, 7vw, 6rem); line-height: 0.95; margin-bottom: 1rem; }
+.reserve-hero__subtitle { max-width: 520px; color: rgba(230,223,211,0.7); font-family: var(--ff-display); font-size: 1.15rem; }
+
+.reserve-form-section { padding: var(--pad-y) var(--pad-x); max-width: 1400px; margin: 0 auto; }
+.reserve-form-section__container { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.reserve-info-cards { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+.reserve-info-card { display: flex; gap: 1rem; align-items: flex-start; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.reserve-info-card__icon { color: var(--gold); font-size: 1.1rem; line-height: 1.4; }
+
+.reserve-form-wrap { background: var(--surface); border: 1px solid var(--border); padding: clamp(1.5rem, 4vw, 3rem); }
+.reserve-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.reserve-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.reserve-form__group { display: flex; flex-direction: column; gap: 0.5rem; }
+.reserve-form__group input, .reserve-form__group select, .reserve-form__group textarea {
+  width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border);
+  padding: 0.7rem 0; color: var(--cream); font-family: var(--ff-sans); font-size: 0.9rem; outline: none; transition: border-color 0.3s;
+}
+.reserve-form__group select option { background: var(--night); color: var(--cream); }
+.reserve-form__group input:focus, .reserve-form__group select:focus, .reserve-form__group textarea:focus { border-bottom-color: var(--gold); }
+.reserve-form__error { font-size: 0.72rem; color: var(--danger); min-height: 1em; }
+
+.reserve-form__guests-control { display: flex; align-items: center; border-bottom: 1px solid var(--border); }
+.reserve-form__guests-btn { background: none; border: none; color: var(--gold); font-size: 1.2rem; padding: 0.5rem 1rem; cursor: pointer; }
+.reserve-form__guests-control input { border: none; text-align: center; width: 60px; }
+
+.reserve-form__submit {
+  margin-top: 0.5rem; padding: 1rem 2rem; background: var(--gold); color: var(--night); border: none;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; position: relative; transition: background 0.3s;
+}
+.reserve-form__submit:hover { background: var(--cream); }
+.reserve-form__submit.is-loading .reserve-form__submit-text { opacity: 0.4; }
+
+.reserve-success { grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; border: 1px solid var(--border); background: var(--surface); }
+.reserve-success__icon {
+  width: 68px; height: 68px; border: 2px solid var(--success); border-radius: 50%; color: var(--success);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.75rem;
+}
+.reserve-success__details { display: flex; justify-content: center; flex-wrap: wrap; gap: 2.5rem; margin: 2rem 0; padding: 1.5rem 0; border-block: 1px solid var(--border); }
+.reserve-success__back { display: inline-block; margin-top: 2rem; font-family: var(--ff-display); font-size: 1.15rem; color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 0.2em; }
+
+.reserve-footer { padding: 2rem var(--pad-x); border-top: 1px solid var(--border); }
+.reserve-footer__inner { display: flex; justify-content: space-between; max-width: 1400px; margin: 0 auto; }
+
+@media (max-width: 900px) {
+  .reserve-form-section__container, .reserve-form__row { grid-template-columns: 1fr; }
+  .reserve-success__details { flex-direction: column; gap: 1.25rem; }
+}

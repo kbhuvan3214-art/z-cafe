@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Z Cafe — Dining Reimagined | Immersive Dining</title>
+  <meta name="description" content="Z Cafe — an immersive waterfall dining experience in Garden District. North Indian, Asian-fusion, wood-fired pizzas and artisan beverages. Open daily 6 PM–11 PM.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor & Grain -->
+  <div class="cursor"></div>
+  <div class="grain"></div>
+
+  <!-- Top Nav - Hairline Border Style -->
+  <header class="topnav" id="topnav">
+    <div class="topnav__inner">
+      <a href="#hero" class="topnav__logo" data-cursor-hover>
+        <span class="topnav__logo-main">Z Cafe</span>
+      </a>
+      <div class="topnav__meta hidden-mobile">
+        <span>LAT: 22.2858° N</span>
+        <span>LON: 70.7621° E</span>
+      </div>
+      <nav class="topnav__links" id="navLinks" aria-label="Main navigation">
+        <a href="#story" class="topnav__link" data-cursor-hover>Story</a>
+        <a href="#ambience" class="topnav__link" data-cursor-hover>Ambience</a>
+        <a href="#menu" class="topnav__link" data-cursor-hover>Menu</a>
+      </nav>
+      <div class="topnav__actions">
+        <a href="reserve.html" class="topnav__cta" data-cursor-hover>Reserve</a>
+        <button class="topnav__menu-btn" id="menuToggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 1 — HERO
+       ═══════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero__bg" data-parallax="0.1">
+      <video class="hero__bg-video" autoplay loop muted playsinline>
+        <source src="in_ratio_keep_everything.mp4" type="video/mp4">
+      </video>
+      <div class="hero__glass-layer-1"></div>
+      <div class="hero__overlay"></div>
+    </div>
+
+    <div class="hero__content">
+      <div class="hero__layout-grid">
+        <div class="hero__meta-left">
+          <p class="micro-text">VOL. I — THE CASCADE</p>
+          <p class="micro-text">GARDEN DISTRICT</p>
+        </div>
+        
+        <h1 class="hero__title" aria-label="Z Cafe">
+          <span class="hero__title-line1">Z Cafe</span>
+          <span class="hero__title-line2">ARTISAN DINING</span>
+        </h1>
+        
+        <div class="hero__meta-right">
+          <p class="micro-text">ESTABLISHED 2026</p>
+          <p class="micro-text">IMMERSIVE DINING</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <span class="hero__scroll-text micro-text">SCROLL TO EXPLORE</span>
+      <span class="hero__scroll-line"></span>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 2 — BRAND / STORY (Asymmetric Layout)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="story" id="story" aria-label="Our Story">
+    <div class="story__container">
+      
+      <div class="story__block story__block--one">
+        <div class="story__text reveal">
+          <span class="eyebrow">01 / ARCHITECTURE</span>
+          <h2 class="display-text">Where<br>Stone<br>Meets<br>Water.</h2>
+          <p class="body-text mt-2">Built around a cascading stone waterfall and wrapped in living greenery, Z Cafe is not a restaurant you visit — it's a place you enter. Every arch, every lantern, every rustling palm was placed to make the city disappear the moment you step through the walkway.</p>
+        </div>
+        <figure class="story__fig story__fig--main reveal" data-parallax="0.1">
+          <img 
+            src="assets/01_architecture.jpg" 
+            alt="Illuminated Z Cafe logo carved into an organic sandstone wall at night"
+            loading="lazy" width="1280" height="854"
+          >
+          <figcaption class="micro-text mt-1">FIG. 1 — THE ENTRANCE WALL</figcaption>
+        </figure>
+      </div>
+
+      <div class="story__block story__block--two">
+        <figure class="story__fig story__fig--offset reveal" data-parallax="0.15">
+          <img 
+            src="assets/02_walkway.jpg" 
+            alt="Lush tropical entrance walkway lit by bamboo lanterns leading to Z Cafe's organic-curved doorway"
+            loading="lazy" width="1380" height="920"
+          >
+          <figcaption class="micro-text mt-1">FIG. 2 — THE BAMBOO WALKWAY</figcaption>
+        </figure>
+        <div class="story__text story__text--right reveal">
+          <span class="eyebrow">02 / CULINARY</span>
+          <p class="body-text">We cook across borders — Punjabi mains slow-simmered the way they should be, Asian small plates with real heat and finesse, wood-fired pizzas with blistered crusts — and serve it all under open sky, candlelight, and the sound of falling water.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 3 — AMBIENCE (Full Bleed Parallax)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="ambience" id="ambience" aria-label="Ambience">
+    <figure class="ambience__bg" data-parallax="0.25">
+      <img 
+        src="assets/03_ambience.jpg"
+        alt="Open-air garden seating at night with stone arch and waterfall fountain visible through tropical plants"
+        loading="lazy" width="1380" height="920"
+      >
+    </figure>
+    <div class="ambience__overlay">
+      <div class="ambience__content reveal">
+        <h2 class="display-text ambience__title">Open Sky,<br>Falling Water,<br>Candlelight.</h2>
+        <div class="ambience__divider"></div>
+        <p class="body-text ambience__desc">Every table sits within a garden — not beside one. Thatched canopies, hand-laid stone, and living bamboo screens dissolve the line between architecture and landscape. The waterfall isn't décor. It's the heartbeat of the room.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 4 — MENU (Hairline List & Staggered Imagery)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="menu" id="menu" aria-label="Menu">
+    <div class="menu__container">
+      
+      <div class="menu__header reveal">
+        <span class="eyebrow">03 / OPUS</span>
+        <h2 class="display-text">Cooked<br>With<br>Conviction.</h2>
+      </div>
+
+      <div class="menu__layout">
+        
+        <div class="menu__images">
+          <figure class="menu__fig menu__fig--large reveal" data-parallax="0.1">
+            <img 
+              src="assets/04_spread.jpg"
+              alt="Abundant spread of wood-fired pizzas, tandoori kebabs, curries, naan breads and colourful mocktails on a marble table"
+              loading="lazy" width="800" height="1000"
+            >
+            <figcaption class="micro-text mt-1">FIG. 3 — THE SPREAD</figcaption>
+          </figure>
+          
+          <div class="menu__images-duo">
+            <figure class="menu__fig menu__fig--small reveal" data-parallax="0.2">
+              <img 
+                src="assets/05_sushi.jpg"
+                alt="Delicate avocado sushi rolls with black sesame seeds and edible flowers on a ceramic plate"
+                loading="lazy" width="800" height="1000"
+              >
+            </figure>
+            <figure class="menu__fig menu__fig--small menu__fig--offset reveal" data-parallax="0.15">
+              <img 
+                src="assets/06_noodles.jpg"
+                alt="Noodle bowl with tofu and edamame beside a citrus mocktail under warm table lamp light"
+                loading="lazy" width="800" height="1000"
+              >
+            </figure>
+          </div>
+        </div>
+
+        <div class="menu__list reveal">
+          <div class="menu__item" data-cursor-hover>
+            <div class="menu__item-header">
+              <span class="micro-text">I.</span>
+              <h3 class="menu__item-title">North Indian &amp; Punjabi</h3>
+            </div>
+            <p class="body-text menu__item-desc">Slow-simmered dals, paneer preparations, tandoori breads — the backbone of comfort, done without shortcuts.</p>
+          </div>
+          
+          <div class="menu__item" data-cursor-hover>
+            <div class="menu__item-header">
+              <span class="micro-text">II.</span>
+              <h3 class="menu__item-title">Asian-Fusion Small Plates</h3>
+            </div>
+            <p class="body-text menu__item-desc">Sushi rolls, dim sum, wok-tossed noodles — precise, punchy, and unapologetically bold.</p>
+          </div>
+          
+          <div class="menu__item" data-cursor-hover>
+            <div class="menu__item-header">
+              <span class="micro-text">III.</span>
+              <h3 class="menu__item-title">Wood-Fired Pizzas</h3>
+            </div>
+            <p class="body-text menu__item-desc">Blistered crusts, seasonal toppings, the char that only real fire gives you.</p>
+          </div>
+          
+          <div class="menu__item" data-cursor-hover>
+            <div class="menu__item-header">
+              <span class="micro-text">IV.</span>
+              <h3 class="menu__item-title">Continental</h3>
+            </div>
+            <p class="body-text menu__item-desc">Pastas, risottos, grills — familiar flavours with considered technique.</p>
+          </div>
+          
+          <div class="menu__item" data-cursor-hover>
+            <div class="menu__item-header">
+              <span class="micro-text">V.</span>
+              <h3 class="menu__item-title">Mocktails &amp; Beverages</h3>
+            </div>
+            <p class="body-text menu__item-desc">House-crafted sodas, fresh-pressed coolers, hot chocolate, chai — every sip made to order.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       EDITORIAL FOOTER 
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="footer" id="inquire" role="contentinfo">
+    <div class="footer__border-top"></div>
+    
+    <div class="footer__layout">
+      <!-- Massive Title -->
+      <div class="footer__brand reveal">
+        <h2 class="footer__giant-text">Z Cafe</h2>
+        <div class="footer__brand-meta">
+          <span class="micro-text">EST. 2026</span>
+          <span class="micro-text">GARDEN DISTRICT</span>
+        </div>
+      </div>
+
+      <!-- Info Columns -->
+      <div class="footer__info">
+        <div class="footer__col reveal">
+          <span class="eyebrow">Location</span>
+          <address class="body-text footer__address">
+            Riverside Promenade, Garden District,<br>
+            Suite 14, Botanical Way
+          </address>
+        </div>
+        
+        <div class="footer__col reveal">
+          <span class="eyebrow">Inquiries</span>
+          <p class="body-text">+91 98790 12345</p>
+          <p class="body-text">concierge@zcafe.in</p>
+        </div>
+        
+        <div class="footer__col reveal">
+          <span class="eyebrow">Hours</span>
+          <p class="body-text">Open Daily</p>
+          <p class="body-text">6:00 PM — 11:00 PM</p>
+        </div>
+      </div>
+      
+      <!-- CTA and Image -->
+      <div class="footer__bottom-section reveal">
+        <figure class="footer__fig">
+          <img 
+            src="assets/07_beverage.jpg"
+            alt="Whipped cream topped hot chocolate in a ceramic cup under warm amber table lamp"
+            loading="lazy" width="800" height="1000"
+          >
+        </figure>
+        
+        <div class="footer__cta-wrap">
+          <a href="reserve.html" class="footer__cta" data-cursor-hover>Reserve A Table</a>
+          <div class="footer__legal mt-2">
+            <span class="micro-text">&copy; 2026 Z Cafe.</span>
+            <a href="#hero" class="micro-text footer__back-top" data-cursor-hover>BACK TO TOP ↑</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

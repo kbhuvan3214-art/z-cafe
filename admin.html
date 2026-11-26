@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — Z Cafe</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- ═══════ LOGIN SCREEN ═══════ -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="login-card__brand">
+        <h1 class="login-card__logo">Z Cafe</h1>
+        <span class="micro-text">ADMIN CONSOLE</span>
+      </div>
+      <form class="login-form" id="loginForm">
+        <div class="login-form__group">
+          <label class="micro-text" for="loginUser">USERNAME</label>
+          <input type="text" id="loginUser" required autocomplete="username" placeholder="admin">
+        </div>
+        <div class="login-form__group">
+          <label class="micro-text" for="loginPass">PASSWORD</label>
+          <input type="password" id="loginPass" required autocomplete="current-password" placeholder="••••••••">
+        </div>
+        <p class="login-form__error" id="loginError"></p>
+        <button type="submit" class="login-form__submit" id="loginBtn">Sign In</button>
+      </form>
+      <a href="index.html" class="login-card__back micro-text">← BACK TO SITE</a>
+    </div>
+  </div>
+
+  <!-- ═══════ ADMIN DASHBOARD ═══════ -->
+  <div class="admin" id="adminDashboard" style="display: none;">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__brand">
+        <span class="sidebar__logo">Z Cafe</span>
+        <span class="micro-text">ADMIN</span>
+      </div>
+
+      <nav class="sidebar__nav">
+        <button class="sidebar__link is-active" data-tab="dashboard">
+          <span class="sidebar__link-icon">◫</span>
+          Dashboard
+        </button>
+        <button class="sidebar__link" data-tab="reservations">
+          <span class="sidebar__link-icon">◱</span>
+          Reservations
+        </button>
+        <button class="sidebar__link" data-tab="tables">
+          <span class="sidebar__link-icon">▣</span>
+          Tables
+        </button>
+      </nav>
+
+      <div class="sidebar__footer">
+        <a href="index.html" class="sidebar__footer-link micro-text">VIEW SITE →</a>
+        <button class="sidebar__logout micro-text" id="logoutBtn">SIGN OUT</button>
+      </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <header class="admin-mobile-header" id="mobileHeader">
+      <button class="admin-mobile-header__toggle" id="sidebarToggle">☰</button>
+      <span class="sidebar__logo">Z Cafe ADMIN</span>
+      <button class="sidebar__logout micro-text" id="logoutBtnMobile" style="margin-left: auto;">SIGN OUT</button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+
+      <!-- ── DASHBOARD TAB ── -->
+      <section class="admin-tab" id="tab-dashboard">
+        <div class="admin-tab__header">
+          <h1 class="admin-tab__title">Dashboard</h1>
+          <span class="admin-tab__date micro-text" id="currentDate"></span>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card">
+            <span class="stat-card__label micro-text">TOTAL RESERVATIONS</span>
+            <span class="stat-card__value" id="statTotal">—</span>
+          </div>
+          <div class="stat-card stat-card--gold">
+            <span class="stat-card__label micro-text">TODAY'S BOOKINGS</span>
+            <span class="stat-card__value" id="statToday">—</span>
+          </div>
+          <div class="stat-card stat-card--warm">
+            <span class="stat-card__label micro-text">PENDING REVIEW</span>
+            <span class="stat-card__value" id="statPending">—</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label micro-text">CONFIRMED TODAY</span>
+            <span class="stat-card__value" id="statConfirmed">—</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label micro-text">ACTIVE TABLES</span>
+            <span class="stat-card__value" id="statTables">—</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label micro-text">TOTAL CAPACITY</span>
+            <span class="stat-card__value" id="statCapacity">—</span>
+          </div>
+        </div>
+
+        <!-- Recent Reservations -->
+        <div class="admin-section">
+          <h2 class="admin-section__title">Recent Reservations</h2>
+          <div class="table-wrap">
+            <table class="data-table" id="recentTable">
+              <thead>
+                <tr>
+                  <th>Guest</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Guests</th>
+                  <th>Table</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="recentTableBody">
+                <tr><td colspan="6" class="data-table__empty">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── RESERVATIONS TAB ── -->
+      <section class="admin-tab" id="tab-reservations" style="display: none;">
+        <div class="admin-tab__header">
+          <h1 class="admin-tab__title">Reservations</h1>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+          <div class="filters__group">
+            <label class="micro-text" for="filterStatus">STATUS</label>
+            <select id="filterStatus">
+              <option value="all">All</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="cancelled">Cancelled</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <div class="filters__group">
+            <label class="micro-text" for="filterDate">DATE</label>
+            <input type="date" id="filterDate">
+          </div>
+          <button class="filters__btn" id="filterBtn">Apply</button>
+          <button class="filters__btn filters__btn--secondary" id="clearFilterBtn">Clear</button>
+        </div>
+
+        <!-- Reservations Table -->
+        <div class="table-wrap">
+          <table class="data-table" id="reservationsTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Guest</th>
+                <th>Contact</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Guests</th>
+                <th>Table</th>
+                <th>Requests</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="reservationsTableBody">
+              <tr><td colspan="10" class="data-table__empty">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ── TABLES TAB ── -->
+      <section class="admin-tab" id="tab-tables" style="display: none;">
+        <div class="admin-tab__header">
+          <h1 class="admin-tab__title">Table Management</h1>
+          <button class="admin-tab__action-btn" id="addTableBtn">+ Add Table</button>
+        </div>
+
+        <!-- Add Table Form -->
+        <div class="add-form" id="addTableForm" style="display: none;">
+          <h3 class="admin-section__title" id="tableFormTitle">Add New Table</h3>
+          <form id="tableForm">
+            <input type="hidden" id="editTableId" value="">
+            <div class="add-form__row">
+              <div class="add-form__group">
+                <label class="micro-text" for="tableNumber">TABLE NUMBER</label>
+                <input type="text" id="tableNumber" required placeholder="e.g. T11">
+              </div>
+              <div class="add-form__group">
+                <label class="micro-text" for="tableCapacity">CAPACITY</label>
+                <input type="number" id="tableCapacity" required min="1" max="20" placeholder="e.g. 4">
+              </div>
+              <div class="add-form__group">
+                <label class="micro-text" for="tableLocation">LOCATION</label>
+                <select id="tableLocation">
+                  <option value="Garden">Garden</option>
+                  <option value="Waterfall View">Waterfall View</option>
+                  <option value="Terrace">Terrace</option>
+                  <option value="Private Alcove">Private Alcove</option>
+                  <option value="Banquet Hall">Banquet Hall</option>
+                </select>
+              </div>
+            </div>
+            <label class="add-form__check">
+              <input type="checkbox" id="tableActive" checked>
+              <span class="micro-text">ACTIVE FOR BOOKINGS</span>
+            </label>
+            <div class="add-form__actions">
+              <button type="submit" class="filters__btn">Save Table</button>
+              <button type="button" class="filters__btn filters__btn--secondary" id="cancelTableBtn">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Tables Grid -->
+        <div class="tables-grid" id="tablesGrid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══════ MODAL (for confirmations) ═══════ -->
+  <div class="modal-overlay" id="modalOverlay" style="display: none;">
+    <div class="modal">
+      <h3 class="modal__title" id="modalTitle">Confirm Action</h3>
+      <p class="modal__text" id="modalText">Are you sure?</p>
+      <div class="modal__actions">
+        <button class="modal__btn modal__btn--confirm" id="modalConfirm">Confirm</button>
+        <button class="modal__btn modal__btn--cancel" id="modalCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

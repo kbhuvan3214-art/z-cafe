@@ -1,0 +1,48 @@
+/* Shared Editorial Design System — Z Cafe */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --night: #0a0a0a;
+  --cream: #e6dfd3;
+  --terracotta: #a65d3b;
+  --gold: #c6a87c;
+  --border: rgba(230, 223, 211, 0.15);
+  --surface: rgba(255, 255, 255, 0.025);
+  --success: #7fa67a;
+  --danger: #c46d6d;
+  --warning: #d4a359;
+  --ff-display: 'Bodoni Moda', serif;
+  --ff-sans: 'Montserrat', sans-serif;
+  --pad-x: clamp(1.25rem, 5vw, 4rem);
+  --pad-y: clamp(3.5rem, 8vw, 7rem);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--ff-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--cream);
+  background: var(--night);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+address { font-style: normal; }
+
+.grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 9000; opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.display-text { font-family: var(--ff-display); font-weight: 400; font-size: clamp(2.6rem, 6.5vw, 6.5rem); line-height: 0.95; letter-spacing: -0.02em; }
+.body-text { font-family: var(--ff-display); font-weight: 400; font-size: clamp(1rem, 1.35vw, 1.25rem); line-height: 1.55; color: rgba(230, 223, 211, 0.8); }
+.micro-text { font-family: var(--ff-sans); font-weight: 500; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+.eyebrow {
+  display: block; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(230, 223, 211, 0.5); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+}
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1.5rem; }
